@@ -17,6 +17,8 @@ The file /src/index.php already contains a REST endpoint to allow users to creat
 ##### Question:
 Read the existing code for the endpoint to create an exercise. Do you see anything that is missing or could be improved?
 
+##### Answer:
+
 - Check json_decode for null return which indicates an error in parsing json
 - This could be my unfamiliarity with SLIM but it looks like :userId is from SLIM v2, and in v3 should be wrapped in braces to be {userId} or if we're ensuring numerical userId then the format would be {userId:[0-9]+}
 - Instead of $response->getBody()->write() we can use $response->withJson(['msg' => '...']) as SLIM appears to offer a helper method to make life easier for us (downside being that our code will then no longer be PSR-7 compatible)
@@ -34,6 +36,9 @@ In the file /src/index.php, create a new endpoint to allow a user to vote for an
 You are free to create new classes and unit/functional tests.
 Use of git to version your code is a plus.
 
+##### Running unit tests
+* Install PHPUnit by running ```composer install``` (please modify as appropriate for your system)
+* Run tests with ```vendor/bin/phpunit src/```
 
 
 Thanks for taking the time to complete this test and don't hesitate to email us if you have any question!
